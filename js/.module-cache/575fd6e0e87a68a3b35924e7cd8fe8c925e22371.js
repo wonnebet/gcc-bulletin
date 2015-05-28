@@ -3,17 +3,17 @@
 //   document.getElementById('bulletin')
 // );
 
-var CommentBox = React.createClass({
+var CommentBox = React.createClass({displayName: "CommentBox",
     render: function() {
         return (
-            <div className="commentBox">
-                Hello, world! I am a CommentBox.
-            </div>
+            React.createElement("div", {className: "commentBox"},
+                "Hello, world! I am a CommentBox."
+            )
         );
     }
 });
 
 React.render(
-    <CommentBox />,
+    React.create,
     document.getElementById('bulletin')
 );

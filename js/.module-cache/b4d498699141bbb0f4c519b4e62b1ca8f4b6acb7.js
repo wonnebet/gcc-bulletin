@@ -6,7 +6,7 @@
 var CommentBox = React.createClass({displayName: "CommentBox",
     render: function() {
         return (
-            React.createElement("div", {className: "commentBox"}, 
+            React.createElement("div", {className: "commentBox"},
                 "Hello, world! I am a CommentBox."
             )
         );
@@ -14,6 +14,6 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 });
 
 React.render(
-    React.createElement(CommentBox, null),
+    React.createElement(),
     document.getElementById('bulletin')
 );

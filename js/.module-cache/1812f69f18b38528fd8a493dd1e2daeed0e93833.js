@@ -15,5 +15,4 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 
 React.render(
     React.createElement(CommentBox, null),
-    document.getElementById('bulletin')
-);
+    document.get)
