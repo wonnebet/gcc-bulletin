@@ -3,18 +3,20 @@ var dateKey = "date/";
 var issueKey = "issue/";
 var taglinesKey = "taglines/";
 
-var Bulletin = React.createClass({
+var Bulletin = React.createClass({displayName: "Bulletin",
 	render: function() {
 		return (
-			<div className="container text-center text-body h4">
-				<Header />
-				<Itinerary />
-			</div>
+			React.createElement("div", {className: "container text-center text-body h4"}, 
+				React.createElement("img", {src: "http://placehold.it/600x200", className: "img-responsive center-block"}), 
+
+				React.createElement(Header, null), 
+				React.createElement(Itinerary, null)
+			)
 		);
 	}
 });
 
-var Header = React.createClass({
+var Header = React.createClass({displayName: "Header",
 	mixins: [ReactFireMixin],
 
 	getInitialState: function() {
@@ -31,21 +33,23 @@ var Header = React.createClass({
 
 	render: function() {
 		return (
-			<div className="text-header h1">
-				<div className="row">
-					<div className="col-xs-6 text-left">
-						{this.state.date}
-					</div>
-					<div className="col-xs-6 text-right">
-						{this.state.issue}
-					</div>
-				</div>
-			</div>
+			React.createElement("div", {className: "text-header h1"}, 
+				React.createElement("div", {className: "row"}, 
+					React.createElement("div", {className: "col-xs-6 text-left"}, 
+						this.state.date
+					), 
+					React.createElement("div", {className: "col-xs-6 text-right"}, 
+						this.state.issue
+					)
+				)
+			)
 		);
 	}
 });
 
-var Itinerary = React.createClass({
+var MainAction = React.createClass()
+
+var Itinerary = React.createClass({displayName: "Itinerary",
 	mixins: [ReactFireMixin],
 
 	getInitialState: function() {
@@ -60,21 +64,21 @@ var Itinerary = React.createClass({
 	render: function() {
 		var taglines = this.state.taglines.map(function (tagline) {
 			return (
-				<div className="text-em">
-					{tagline}
-				</div>
+				React.createElement("div", {className: "text-em"}, 
+					tagline
+				)
 			);
 		});
 
 		return (
-			<div>
-				{taglines}
-			</div>
+			React.createElement("div", null, 
+				taglines
+			)
 		);
 	}
 });
 
 React.render(
-	<Bulletin />,
+	React.createElement(Bulletin, null),
 	document.getElementById('bulletin')
 );

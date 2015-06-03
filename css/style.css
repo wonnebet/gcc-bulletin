@@ -1,6 +1,7 @@
-.text-header {
+.header {
     background-color: navy;
     color: white;
+    height: 40px;
 }
 
 .text-body {
