@@ -3,9 +3,6 @@
 var firebaseRoot = "https://crackling-torch-3976.firebaseio.com/gcc/";
 
 var frontKey = "front";
-var headerKey = "header";
-var itineraryKey = "itinerary";
-var sermonKey = "sermon";
 
 var MainAction = React.createClass({displayName: "MainAction",
 	render: function() {
@@ -148,8 +145,12 @@ var SermonNotes = React.createClass({displayName: "SermonNotes",
 					), 
 					React.createElement("div", {className: "col-xs-6 text-strong text-right"}, 
 						React.createElement("div", null, 
-							this.props.header.title
+							this.props.header.titleMain
 						), 
+						React.createElement("div", null, 
+							this.props.header.titleSecondary
+						), 
+						React.createElement(BlankLine, null), 
 						React.createElement("div", {className: "text-em"}, 
 							this.props.header.scripture
 						)

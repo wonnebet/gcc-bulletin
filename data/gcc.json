@@ -1,8 +1,8 @@
 {
 	"front": {
 		"header": {
-			"date": "April 12, 2015",
-			"issue": "Vol. 20, Issue 26"
+			"date": "May 31, 2015",
+			"issue": "Vol. 20, Issue 33"
 		},
 		"itinerary": [
 			{
@@ -11,7 +11,7 @@
 			},
 			{
 				"type": "flavor",
-				"text": "Singing Led by Alan Pate"
+				"text": "Singing Led by Tommy Gunn"
 			},
 			{
 				"type": "blank",
@@ -19,11 +19,15 @@
 			},
 			{
 				"type": "secondary",
-				"text": "52 RB - Firm Foundation"
+				"text": "718 - We Shall Assemble"
 			},
 			{
 				"type": "secondary",
-				"text": "Shout Hallelujah"
+				"text": "72 - Blessed be the Lord God"
+			},
+			{
+				"type": "secondary",
+				"text": "63 - I Will Call Upon the Lord"
 			},
 			{
 				"type": "main",
@@ -35,11 +39,11 @@
 			},
 			{
 				"type": "secondary",
-				"text": "116 - God Will Make A Way"
+				"text": "587 - Sing and be Happy"
 			},
 			{
 				"type": "secondary",
-				"text": "Mighty To Save"
+				"text": "15 - Step by Step"
 			},
 			{
 				"type": "main",
@@ -47,11 +51,7 @@
 			},
 			{
 				"type": "secondary",
-				"text": "153 - Come, Let Us Worship and Bow Down"
-			},
-			{
-				"type": "secondary",
-				"text": "253 - Sweet Adoration"
+				"text": "300 - Praise Him, Praise Him"
 			},
 			{
 				"type": "main",
@@ -59,15 +59,11 @@
 			},
 			{
 				"type": "main",
-				"text": "Scripture Reading (Psalm 119:9-16)"
+				"text": "Scripture Reading (Romans 12:9-21)"
 			},
 			{
 				"type": "secondary",
-				"text": "72 - Blessed Be the Lord God Almighty"
-			},
-			{
-				"type": "secondary",
-				"text": "76 - How Great Thou Art"
+				"text": "716 - Sing to me of Heaven"
 			},
 			{
 				"type": "main",
@@ -75,7 +71,7 @@
 			},
 			{
 				"type": "secondary",
-				"text": "719 - Love One Another"
+				"text": "412 - Jesus Hold My Hand"
 			},
 			{
 				"type": "main",
@@ -83,18 +79,19 @@
 			},
 			{
 				"type": "secondary",
-				"text": "449 - Thy Word"
+				"text": "41 - Mighty is Our God"
 			}
 		],
 		"sermon": {
 			"header": {
-				"title": "Children and Parents",
-				"scripture": "Ephesians 6:1-4"
+				"titleMain": "The Armor of God:",
+				"titleSecondary": "The Sword of the Spirit",
+				"scripture": "Ephesians 6:10-17"
 			},
 			"notes": [
 				{
 					"type": "static",
-					"text": "1. Children are to"
+					"text": "I. We Are"
 				},
 				{
 					"type": "input",
@@ -102,22 +99,10 @@
 				},
 				{
 					"type": "static",
-					"text": "and"
+					"text": "-"
 				},
 				{
 					"type": "input",
-					"text": ""
-				},
-				{
-					"type": "static",
-					"text": "their parents"
-				},
-				{
-					"type": "blank",
-					"text": ""
-				},
-				{
-					"type": "inputArea",
 					"text": ""
 				},
 				{
@@ -126,7 +111,7 @@
 				},
 				{
 					"type": "static",
-					"text": "1. Parents are to"
+					"text": "II. We are a"
 				},
 				{
 					"type": "input",
@@ -134,7 +119,7 @@
 				},
 				{
 					"type": "static",
-					"text": "and"
+					"text": "-"
 				},
 				{
 					"type": "input",
@@ -142,11 +127,27 @@
 				},
 				{
 					"type": "static",
-					"text": "their children"
+					"text": "culture"
 				},
 				{
 					"type": "blank",
 					"text": ""
+				},
+				{
+					"type": "static",
+					"text": "III. Bible study is"
+				},
+				{
+					"type": "input",
+					"text": ""
+				},
+				{
+					"type": "blank",
+					"text": ""
+				},
+				{
+					"type": "static",
+					"text": "Notes:"
 				},
 				{
 					"type": "inputArea",
@@ -154,5 +155,8 @@
 				}
 			]
 		}
-	}
+	},
+	"left": {},
+	"right": {},
+	"back": {}
 }

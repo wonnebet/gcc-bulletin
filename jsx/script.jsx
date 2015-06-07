@@ -3,9 +3,6 @@
 var firebaseRoot = "https://crackling-torch-3976.firebaseio.com/gcc/";
 
 var frontKey = "front";
-var headerKey = "header";
-var itineraryKey = "itinerary";
-var sermonKey = "sermon";
 
 var MainAction = React.createClass({
 	render: function() {
@@ -148,8 +145,12 @@ var SermonNotes = React.createClass({
 					</div>
 					<div className="col-xs-6 text-strong text-right">
 						<div>
-							{this.props.header.title}
+							{this.props.header.titleMain}
 						</div>
+						<div>
+							{this.props.header.titleSecondary}
+						</div>
+						<BlankLine />
 						<div className="text-em">
 							{this.props.header.scripture}
 						</div>

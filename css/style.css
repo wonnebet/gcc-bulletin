@@ -1,16 +1,24 @@
+hr {
+    border-top-width: 10px;
+    border-top-color: navy;
+}
+
 .header {
     background-color: navy;
     color: white;
     height: 40px;
 }
 
-.text-body {
-    line-height: 150%;
+.vr {
+    border-left: thin solid navy;
 }
 
-hr {
-    border-top-width: 10px;
-    border-top-color: navy;
+.vr-thick {
+    border-left: thick solid navy;
+}
+
+.text-body {
+    line-height: 150%;
 }
 
 .text-strong {
