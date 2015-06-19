@@ -6,11 +6,11 @@
 		},
 		"itinerary": [
 			{
-				"type": "flavor",
+				"type": "italic",
 				"text": "\"Let everything that has breath praise the Lord.\" (Psalm 150:6)"
 			},
 			{
-				"type": "flavor",
+				"type": "italic",
 				"text": "Singing Led by Tommy Gunn"
 			},
 			{
@@ -18,73 +18,73 @@
 				"text": ""
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "718 - We Shall Assemble"
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "72 - Blessed be the Lord God"
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "63 - I Will Call Upon the Lord"
 			},
 			{
-				"type": "main",
+				"type": "bold",
 				"text": "Welcome and Call to Worship"
 			},
 			{
-				"type": "main",
+				"type": "bold",
 				"text": "Prayer"
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "587 - Sing and be Happy"
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "15 - Step by Step"
 			},
 			{
-				"type": "main",
+				"type": "bold",
 				"text": "Offering"
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "300 - Praise Him, Praise Him"
 			},
 			{
-				"type": "main",
+				"type": "bold",
 				"text": "Communion"
 			},
 			{
-				"type": "main",
+				"type": "bold",
 				"text": "Scripture Reading (Romans 12:9-21)"
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "716 - Sing to me of Heaven"
 			},
 			{
-				"type": "main",
+				"type": "bold",
 				"text": "Sermon"
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "412 - Jesus Hold My Hand"
 			},
 			{
-				"type": "main",
+				"type": "bold",
 				"text": "Closing Remarks and Prayer"
 			},
 			{
-				"type": "secondary",
+				"type": "text",
 				"text": "41 - Mighty is Our God"
 			}
 		],
 		"sermon": {
 			"header": {
-				"titleMain": "The Armor of God:",
+				"titlePrimary": "The Armor of God:",
 				"titleSecondary": "The Sword of the Spirit",
 				"scripture": "Ephesians 6:10-17"
 			},
@@ -156,7 +156,126 @@
 			]
 		}
 	},
-	"left": {},
+	"left": {
+		"header": {
+			"title": "Events & Announcements",
+			"note": "\"And let us consider how we may spur one another on toward love and good deeds\" (Hebrews 10:24)"
+		},
+		"events": [
+			{
+				"name": "Sunday Morning Classes",
+				"text": "Please join us for classes on Sunday mornings at 9:30.  New classes begin next week."
+			},
+			{
+				"name": "Connection Groups",
+				"text": "Connection Groups will not meet today.  Please join in the many activities that are on our calendar."
+			},
+			{
+				"name": "Wednesday Night Together",
+				"text": "Join us for Wednesday Nights together this week.  We meet at 6:30 for our meal and/or 7:00pm for classes for all ages.  This week please bring a sack lunch for dinner."
+			},
+			{
+				"name": "Supper Clubs",
+				"text": "New Supper Clubs have been assigned!  Check the bulletin board to see your new group."
+			},
+			{
+				"name": "Vacation Bible School",
+				"text": "Our VBS is right around the corner and you do not want to miss it!  Mark June 7th-10th on your calendars for a time of fun and learning.  This year's theme is SonSpark Labs.  We will meet from 6:30-8:30pm each night and dinner will be served for the kids!  Register online at www.gwinnettcc.org"
+			},
+			{
+				"name": "Neemah House",
+				"text": "As shipment with over 92lbs of clothing and books was sent to the Neemah House recently.  Thank you so much for your continued support of the children in Tanzania who will greatly benefit from your service and generosity."
+			},
+			{
+				"name": "Outreach Ghana: Funding Wells & Giving Water",
+				"text": "The GCC Well ministry is providing water to citizens of Ghana through this important outreach.  Thank you for your continued suppport of this ministry."
+			},
+			{
+				"name": "Lawrenceville Co-op Volunteers",
+				"text": "Please make plans to help at the Lawrenceville Co-op on June 6th from 9:45am - 12:00pm.  See Lynn Torak for details."
+			},
+			{
+				"name": "Co-op Pantry Items",
+				"text": "Week ending 5/24 = 48.  Please help support one of GCC's important mission to help feed those in our community who are less fortunate and need a helping hand from time to time to feed their families.  Thanks to all those who gave!!! please try to bring at least 3 items each week!!!"
+			}
+		],
+		"financial": {
+			"title": "Financial Information",
+			"finances": [
+				{
+					"title": "Contribution Last Week",
+					"amount": "$3,371"
+				},
+				{
+					"title": "YTD Average Weekly Contribution",
+					"amount": "$5,714"
+				},
+				{
+					"title": "Weekly Budget",
+					"amount": "$5,271"
+				}
+			]
+		},
+		"nursery": {
+			"title": "Nursery",
+			"notes": [
+				{
+					"type": "text",
+					"text": "05/31 Jackie Bradlley & Rachel Chisholm"
+				},
+				{
+					"type": "text",
+					"text": "06/07 Elizabeth Thompson & Suzanne Gunn"
+				},
+				{
+					"type": "bold",
+					"text": "Our nursery is for babies 2 year & younger."
+				},
+				{
+					"type": "bold italic",
+					"text": "Please, no older children in the nursery"
+				}
+			]
+		},
+		"children": {
+			"title": "Children's Church Assignments",
+			"assignments": [
+				{
+					"class": "Preschool",
+					"teacher": "Elizabeth Scott"
+				},
+				{
+					"class": "K - 2nd",
+					"teacher": "Nichelle Jackson"
+				},
+				{
+					"class": "3rd - 5th",
+					"teacher": "Spencer Jackson"
+				}
+			]
+		},
+		"wednesday": {
+			"title": "Classes - Wednesday Nights Together",
+			"assignments": [
+				{
+					"class": "Men's Fellowship Group",
+					"teacher": "Alan Pate"
+				},
+				{
+					"class": "Women's Study Group",
+					"teacher": "Donna Pate"
+				},
+				{
+					"class": "Children's Upreach",
+					"teacher": "Robby Dittmann"
+				},
+				{
+					"class": "Teens",
+					"teacher": "Keith Walmsley"
+				}
+			]
+		}
+	},
 	"right": {},
 	"back": {}
 }

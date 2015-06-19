@@ -32,3 +32,7 @@ hr {
 .text-indent {
     text-indent: 25px;
 }
+
+.text-underline {
+    text-decoration: underline;
+}

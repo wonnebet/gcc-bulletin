@@ -3,32 +3,76 @@
 var firebaseRoot = "https://crackling-torch-3976.firebaseio.com/gcc/";
 
 var frontKey = "front";
+var leftKey = "left";
+var rightKey = "right";
+var backKey = "back";
 
-var MainAction = React.createClass({displayName: "MainAction",
+var Line = React.createClass({displayName: "Line",
 	render: function() {
-		return (
-			React.createElement("div", {className: "text-strong"}, 
-				this.props.text
-			)
-		);
+		if (this.props.type === "blank") {
+			return (
+				React.createElement("div", null, 
+					React.createElement("br", null)
+				)
+			);
+		} else {
+			var classString = "";
+
+			if (this.props.type.indexOf("bold") > -1) {
+				classString += " text-strong";
+			}
+
+			if (this.props.type.indexOf("italic") > -1) {
+				classString += " text-em";
+			}
+
+			if (this.props.type.indexOf("large") > -1) {
+				classString += " h1";
+			}
+
+			if (this.props.type.indexOf("left") > -1) {
+				classString += " text-left";
+			}
+
+			if (this.props.type.indexOf("right") > -1) {
+				classString += " text-right";
+			}
+
+			return (
+				React.createElement("div", {className: classString}, 
+					this.props.text
+				)
+			);
+		}
 	}
 });
 
-var SecondaryAction = React.createClass({displayName: "SecondaryAction",
+var TwoColumnRow = React.createClass({displayName: "TwoColumnRow",
 	render: function() {
+		var row = function(split, leftText, rightText) {
+			var ratios = split.split(":").map( function( num ){ return parseInt( num, 10 ) } );
+			var ratioTotal = ratios[0] + ratios[1];
+			var multiplier = 12 / ratioTotal;
+			ratios = ratios.map( function(x){return (x * multiplier)});
+
+			var leftClass = "text-left col-xs-" + ratios[0];
+			var rightClass = "text-right col-xs-" + ratios[1];
+
+			return (
+				React.createElement("div", {className: "row"}, 
+					React.createElement("div", {className: leftClass}, 
+						leftText
+					), 
+					React.createElement("div", {className: rightClass}, 
+						rightText
+					)
+				)
+			);
+		};
+
 		return (
 			React.createElement("div", null, 
-				this.props.text
-			)
-		);
-	}
-});
-
-var FlavorLine = React.createClass({displayName: "FlavorLine",
-	render: function() {
-		return (
-			React.createElement("div", {className: "text-em"}, 
-				this.props.text
+				row(this.props.split, this.props.leftText, this.props.rightText)
 			)
 		);
 	}
@@ -64,106 +108,6 @@ var InputArea = React.createClass({displayName: "InputArea",
 	}
 });
 
-var BlankLine = React.createClass({displayName: "BlankLine",
-	render: function() {
-		return (
-			React.createElement("div", null, 
-				React.createElement("br", null)
-			)
-		);
-	}
-});
-
-var Header = React.createClass({displayName: "Header",
-	render: function() {
-		return (
-			React.createElement("div", {className: "header h1"}, 
-				React.createElement("div", {className: "row"}, 
-					React.createElement("div", {className: "col-xs-6 text-left"}, 
-						this.props.date
-					), 
-					React.createElement("div", {className: "col-xs-6 text-right"}, 
-						this.props.issue
-					)
-				)
-			)
-		);
-	}
-});
-
-var Itinerary = React.createClass({displayName: "Itinerary",
-	render: function() {
-		var itinerary = this.props.items.map(function (item) {
-			switch (item.type) {
-				case "main":
-					return (React.createElement(MainAction, {text: item.text}));
-					break;
-				case "secondary":
-					return (React.createElement(SecondaryAction, {text: item.text}));
-					break;
-				case "flavor":
-					return (React.createElement(FlavorLine, {text: item.text}));
-					break;
-				case "blank":
-					return (React.createElement(BlankLine, null));
-					break;
-			}
-		});
-
-		return (
-			React.createElement("div", null, 
-				itinerary
-			)
-		);
-	}
-});
-
-var SermonNotes = React.createClass({displayName: "SermonNotes",
-	render: function() {
-		var notes = this.props.notes.map(function (note) {
-			switch (note.type) {
-				case "static":
-					return (React.createElement(StaticNote, {text: note.text}));
-					break;
-				case "input":
-					return (React.createElement(Input, null));
-					break;
-				case "inputArea":
-					return (React.createElement(InputArea, null));
-					break;
-				case "blank":
-					return (React.createElement(BlankLine, null));
-					break;
-			}
-		});
-
-		return (
-			React.createElement("div", null, 
-				React.createElement("div", {className: "row"}, 
-					React.createElement("div", {className: "col-xs-6 text-left"}, 
-						React.createElement("img", {src: "http://placehold.it/150x100", className: "img-responsive", alt: "GCC"})
-					), 
-					React.createElement("div", {className: "col-xs-6 text-strong text-right"}, 
-						React.createElement("div", null, 
-							this.props.header.titleMain
-						), 
-						React.createElement("div", null, 
-							this.props.header.titleSecondary
-						), 
-						React.createElement(BlankLine, null), 
-						React.createElement("div", {className: "text-em"}, 
-							this.props.header.scripture
-						)
-					)
-				), 
-				React.createElement("form", {className: "form-inline text-left"}, 
-					notes
-				)
-			)
-		);
-	}
-});
-
 var Footer = React.createClass({displayName: "Footer",
 	render: function() {
 		return (
@@ -173,50 +117,15 @@ var Footer = React.createClass({displayName: "Footer",
 	}
 });
 
-var FrontPage = React.createClass({displayName: "FrontPage",
+var Menu = React.createClass({displayName: "Menu",
 	render: function() {
 		return (
-			React.createElement("div", {className: "container text-center text-body h4"}, 
-				React.createElement("img", {src: "http://placehold.it/600x200", className: "img-responsive center-block"}), 
-				React.createElement(Header, {date: this.props.data.header.date, issue: this.props.data.header.issue}), 
-				React.createElement(Itinerary, {items: this.props.data.itinerary}), 
-				React.createElement("hr", null), 
-				React.createElement(SermonNotes, {header: this.props.data.sermon.header, notes: this.props.data.sermon.notes}), 
-				React.createElement(Footer, null)
+			React.createElement("ul", {className: "nav nav-pills"}, 
+				React.createElement("li", {role: "presentation", className: this.props.curPage === frontKey ? "active" : ""}, React.createElement("a", {href: frontKey + ".html"}, "Front Cover")), 
+				React.createElement("li", {role: "presentation", className: this.props.curPage === leftKey ? "active" : ""}, React.createElement("a", {href: leftKey + ".html"}, "Left Inner")), 
+				React.createElement("li", {role: "presentation", className: this.props.curPage === rightKey ? "active" : ""}, React.createElement("a", {href: rightKey + ".html"}, "Right Inner")), 
+				React.createElement("li", {role: "presentation", className: this.props.curPage === backKey ? "active" : ""}, React.createElement("a", {href: backKey + ".html"}, "Back Cover"))
 			)
 		);
 	}
 });
-
-var Bulletin = React.createClass({displayName: "Bulletin",
-	mixins: [ReactFireMixin],
-
-	getInitialState: function() {
-		return {
-			front: {
-				header: {},
-				itinerary: [],
-				sermon: {
-					header: {},
-					notes: []
-				}
-			}
-		};
-	},
-
-	componentWillMount: function() {
-		var firebaseRef = new Firebase(firebaseRoot);
-		this.bindAsObject(firebaseRef.child(frontKey), frontKey);
-	},
-
-	render: function() {
-		return (
-			React.createElement(FrontPage, {data: this.state.front})
-		)
-	}
-})
-
-React.render(
-	React.createElement(Bulletin, null),
-	document.getElementById('bulletin')
-);

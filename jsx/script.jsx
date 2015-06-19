@@ -3,32 +3,76 @@
 var firebaseRoot = "https://crackling-torch-3976.firebaseio.com/gcc/";
 
 var frontKey = "front";
+var leftKey = "left";
+var rightKey = "right";
+var backKey = "back";
 
-var MainAction = React.createClass({
+var Line = React.createClass({
 	render: function() {
-		return (
-			<div className="text-strong">
-				{this.props.text}
-			</div>
-		);
+		if (this.props.type === "blank") {
+			return (
+				<div>
+					<br />
+				</div>
+			);
+		} else {
+			var classString = "";
+
+			if (this.props.type.indexOf("bold") > -1) {
+				classString += " text-strong";
+			}
+
+			if (this.props.type.indexOf("italic") > -1) {
+				classString += " text-em";
+			}
+
+			if (this.props.type.indexOf("large") > -1) {
+				classString += " h1";
+			}
+
+			if (this.props.type.indexOf("left") > -1) {
+				classString += " text-left";
+			}
+
+			if (this.props.type.indexOf("right") > -1) {
+				classString += " text-right";
+			}
+
+			return (
+				<div className={classString}>
+					{this.props.text}
+				</div>
+			);
+		}
 	}
 });
 
-var SecondaryAction = React.createClass({
+var TwoColumnRow = React.createClass({
 	render: function() {
+		var row = function(split, leftText, rightText) {
+			var ratios = split.split(":").map( function( num ){ return parseInt( num, 10 ) } );
+			var ratioTotal = ratios[0] + ratios[1];
+			var multiplier = 12 / ratioTotal;
+			ratios = ratios.map( function(x){return (x * multiplier)});
+
+			var leftClass = "text-left col-xs-" + ratios[0];
+			var rightClass = "text-right col-xs-" + ratios[1];
+
+			return (
+				<div className="row">
+					<div className={leftClass}>
+						{leftText}
+					</div>
+					<div className={rightClass}>
+						{rightText}
+					</div>
+				</div>
+			);
+		};
+
 		return (
 			<div>
-				{this.props.text}
-			</div>
-		);
-	}
-});
-
-var FlavorLine = React.createClass({
-	render: function() {
-		return (
-			<div className="text-em">
-				{this.props.text}
+				{row(this.props.split, this.props.leftText, this.props.rightText)}
 			</div>
 		);
 	}
@@ -64,106 +108,6 @@ var InputArea = React.createClass({
 	}
 });
 
-var BlankLine = React.createClass({
-	render: function() {
-		return (
-			<div>
-				<br />
-			</div>
-		);
-	}
-});
-
-var Header = React.createClass({
-	render: function() {
-		return (
-			<div className="header h1">
-				<div className="row">
-					<div className="col-xs-6 text-left">
-						{this.props.date}
-					</div>
-					<div className="col-xs-6 text-right">
-						{this.props.issue}
-					</div>
-				</div>
-			</div>
-		);
-	}
-});
-
-var Itinerary = React.createClass({
-	render: function() {
-		var itinerary = this.props.items.map(function (item) {
-			switch (item.type) {
-				case "main":
-					return (<MainAction text={item.text} />);
-					break;
-				case "secondary":
-					return (<SecondaryAction text={item.text} />);
-					break;
-				case "flavor":
-					return (<FlavorLine text={item.text} />);
-					break;
-				case "blank":
-					return (<BlankLine />);
-					break;
-			}
-		});
-
-		return (
-			<div>
-				{itinerary}
-			</div>
-		);
-	}
-});
-
-var SermonNotes = React.createClass({
-	render: function() {
-		var notes = this.props.notes.map(function (note) {
-			switch (note.type) {
-				case "static":
-					return (<StaticNote text={note.text} />);
-					break;
-				case "input":
-					return (<Input />);
-					break;
-				case "inputArea":
-					return (<InputArea />);
-					break;
-				case "blank":
-					return (<BlankLine />);
-					break;
-			}
-		});
-
-		return (
-			<div>
-				<div className="row">
-					<div className="col-xs-6 text-left">
-						<img src={"http://placehold.it/150x100"} className="img-responsive" alt="GCC" />
-					</div>
-					<div className="col-xs-6 text-strong text-right">
-						<div>
-							{this.props.header.titleMain}
-						</div>
-						<div>
-							{this.props.header.titleSecondary}
-						</div>
-						<BlankLine />
-						<div className="text-em">
-							{this.props.header.scripture}
-						</div>
-					</div>
-				</div>
-				<form className="form-inline text-left">
-					{notes}
-				</form>
-			</div>
-		);
-	}
-});
-
 var Footer = React.createClass({
 	render: function() {
 		return (
@@ -173,50 +117,15 @@ var Footer = React.createClass({
 	}
 });
 
-var FrontPage = React.createClass({
+var Menu = React.createClass({
 	render: function() {
 		return (
-			<div className="container text-center text-body h4">
-				<img src={"http://placehold.it/600x200"} className="img-responsive center-block" />
-				<Header date={this.props.data.header.date} issue={this.props.data.header.issue} />
-				<Itinerary items={this.props.data.itinerary} />
-				<hr />
-				<SermonNotes header={this.props.data.sermon.header} notes={this.props.data.sermon.notes} />
-				<Footer />
-			</div>
+			<ul className="nav nav-pills">
+				<li role={"presentation"} className={this.props.curPage === frontKey ? "active" : ""}><a href={frontKey + ".html"}>Front Cover</a></li>
+				<li role={"presentation"} className={this.props.curPage === leftKey ? "active" : ""}><a href={leftKey + ".html"}>Left Inner</a></li>
+				<li role={"presentation"}c lassName={this.props.curPage === rightKey ? "active" : ""}><a href={rightKey + ".html"}>Right Inner</a></li>
+				<li role={"presentation"} className={this.props.curPage === backKey ? "active" : ""}><a href={backKey + ".html"}>Back Cover</a></li>
+			</ul>
 		);
 	}
 });
-
-var Bulletin = React.createClass({
-	mixins: [ReactFireMixin],
-
-	getInitialState: function() {
-		return {
-			front: {
-				header: {},
-				itinerary: [],
-				sermon: {
-					header: {},
-					notes: []
-				}
-			}
-		};
-	},
-
-	componentWillMount: function() {
-		var firebaseRef = new Firebase(firebaseRoot);
-		this.bindAsObject(firebaseRef.child(frontKey), frontKey);
-	},
-
-	render: function() {
-		return (
-			<FrontPage data={this.state.front} />
-		)
-	}
-})
-
-React.render(
-	<Bulletin />,
-	document.getElementById('bulletin')
-);
